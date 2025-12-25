@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="./js/card.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -10,6 +11,10 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+      }
+      body {
+        background-color: black;
+        color: whitesmoke;
       }
       main {
         margin: 2rem 3rem;
@@ -27,9 +32,9 @@
     <main>
       <section class="card-container">
       <div class="message">
-        <h1 id="merry-christmas">Merry Christmas, Ian!</h1>
+        <h1>Merry Christmas, <span id="merry-name">Leah</span>!</h1>
         <p id="merry-message">Too bad I'm going to eat your family and rob your house!</p>
-        <p id="santa">Santa</p>
+        <p id="santa">Santa (aka <span id="merry-sender" >Satan</span>)</p>
         <i class="fa-solid fa-sleigh"></i>
       </div>
       <figure>
@@ -37,7 +42,7 @@
       </figure>
       </section>
       <section class="create-list-container">
-        <button id="create-list-btn">Create Your Own List</button>
+        <a href="/index.html" id="create-list-btn">Create Your Own List</a>
       </section>
     </main>
   </body>
