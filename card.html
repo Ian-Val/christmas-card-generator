@@ -3,7 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Card</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        margin: 2rem 3rem;
+      }
+      .card-container {
+        display: flex;
+        flex-direction: row;
+      }
+      .create-list-container {
+        justify-content: center;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <section class="card-container">
+      <div class="message">
+        <h1 id="merry-christmas">Merry Christmas, Ian!</h1>
+        <p id="merry-message">Too bad I'm going to eat your family and rob your house!</p>
+        <p id="santa">Santa</p>
+        <i class="fa-solid fa-sleigh"></i>
+      </div>
+      <figure>
+        <img src="../imgs/santa-naughty.png" alt="Santa lookin' like he 'bout to eat you." width="300px" id="santa-img"/>
+      </figure>
+      </section>
+      <section class="create-list-container">
+        <button id="create-list-btn">Create Your Own List</button>
+      </section>
+    </main>
+  </body>
 </html>
