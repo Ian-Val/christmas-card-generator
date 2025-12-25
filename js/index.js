@@ -1,42 +1,121 @@
 const DOM = {
   addPersonBtn: document.getElementById("add-person-btn"),
   listEl: document.getElementById("list"),
+  userName: document.getElementById("user-name"),
 };
+
+const FIRST_NAME_LOCAL_STORAGE_KEY = "first-name-key-01";
+const DATA_LOCAL_STORAGE_KEY = "data-key-01";
+
+const retreivedFirstName = localStorage.getItem(FIRST_NAME_LOCAL_STORAGE_KEY);
+let retreivedData = "";
+try {
+  retreivedData = JSON.parse(localStorage.getItem(DATA_LOCAL_STORAGE_KEY));
+} catch (error) {
+  console.error(error.message);
+}
+
+// localStorage.setItem(
+//   DATA_LOCAL_STORAGE_KEY,
+//   JSON.stringify([
+//     { name: "ian", message: "you suck", status: "naughty" },
+//     { name: "leah", message: "you are nice", status: "nice" },
+//     { name: "joe", message: "you suck wind", status: "naughty" },
+//   ])
+// );
+
+if (retreivedFirstName) {
+  DOM.userName.value = retreivedFirstName;
+} else {
+  DOM.userName.focus();
+}
+
+const dataModel = [];
+let newPersonID = 0;
+
+if (retreivedData) {
+  renderList();
+} else {
+  retreivedData.forEach((el) => dataModel.push(el));
+}
+
+DOM.userName.addEventListener("input", () => {
+  localStorage.setItem(FIRST_NAME_LOCAL_STORAGE_KEY, DOM.userName.value.trim());
+});
+
+DOM.listEl.addEventListener("input", (e) => {
+  const changedID = e.target.id.split("-").pop();
+  console.log(changedID);
+  let newData = "";
+
+  localStorage.setItem(DATA_LOCAL_STORAGE_KEY, newData);
+});
+
+DOM.listEl.append(newPerson());
 
 DOM.addPersonBtn.addEventListener("click", () => {
   DOM.listEl.append(newPerson());
-  console.log("we just added a person");
 });
 
-function newPerson() {
+function renderList() {
+  dataModel.forEach((el) =>
+    DOM.listEl.append(newPerson(el.name, el.message, el.status))
+  );
+}
+
+function newPerson(name = "", message = "", status = "nice") {
   const container = document.createElement("DIV");
   const listHTML = `
       <div class="list-item-container">
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="off"/>
+        <div id="person-${newPersonID}">
+          <label for="name-${newPersonID}">Name</label>
+          <input 
+            id="name-${newPersonID}" 
+            name="name-${newPersonID}" 
+            type="text" 
+            autocomplete="off"
+            value="${name ? name : ""}"
+        />
         </div>
         <div>
-          <label for="message">Message</label>
-          <input id="message" name="message" type="text" autocomplete="off"/>
+          <label for="message-${newPersonID}">Message</label>
+          <input 
+            id="message-${newPersonID}"
+            name="message-${newPersonID}"
+            type="text"
+            autocomplete="off"
+            value="${message ? message : ""}"
+            />
         </div>
         <div>
           <fieldset>
             <legend>Status</legend>
 
-            <label>
-              <input type="radio" name="behavior" value="naughty" />
+            <input 
+              id="status-${newPersonID}" 
+              type="radio" 
+              name="status-${newPersonID}" 
+              value="naughty" 
+              ${status === "naughty" ? "checked" : ""}
+            />
+            <label for="status-${newPersonID}" >
               Naughty
             </label>
-
-            <label>
-              <input type="radio" name="behavior" value="nice" checked/>
+            
+            <input 
+              id="status-${newPersonID}" 
+              type="radio" 
+              name="status-${newPersonID}" 
+              value="nice" 
+              ${status === "nice" ? "checked" : ""}
+            />
+            <label for="status-${newPersonID}" >
               Nice
             </label>
           </fieldset>
         </div>
         <div>
-          <button aria-label="share">
+          <a aria-label="share" id="share-person-${newPersonID}">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -52,10 +131,10 @@ function newPerson() {
                 d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"
               />
             </svg>
-          </button>
+          </a>
         </div>
         <div>
-          <button aria-label="delete">
+          <button aria-label="delete" id="delete-person-${newPersonID}">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -73,6 +152,17 @@ function newPerson() {
       </div>
   `;
   container.innerHTML = listHTML;
-
+  const deleteBtn = container.querySelector(`#delete-person-${newPersonID}`);
+  deleteBtn.addEventListener("click", () => {
+    container.remove();
+  });
+  const shareBtn = container.querySelector(`#share-person-${newPersonID}`);
+  shareBtn.href = `/card.html`;
+  newPersonID++;
+  dataModel.push({
+    name,
+    message,
+    status,
+  });
   return container;
 }
