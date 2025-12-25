@@ -1,0 +1,28 @@
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #B73340;
+        color: whitesmoke;
+      }
+      main {
+        margin: 2rem 3rem;
+      }
+      .card-container {
+        display: flex;
+        flex-direction: row;
+      }
+      .create-list-container {
+        justify-content: center;
+      }
+
+      .naughty {
+        background-color: black;
+        color: whitesmoke;
+      }
+
+      .naughty a {
+        background-color: green;
+      }

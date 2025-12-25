@@ -15,6 +15,7 @@ merryMessage.textContent = userMessage;
 merrySender.textContent = sender;
 if (userStatus === 'naughty') {
     merryImg.src = '../imgs/santa-naughty.png';
+    document.body.className = 'naughty';
 } else if (userStatus === 'nice') {
     merryImg.src = '../imgs/santa-nice.png';
 } else {
