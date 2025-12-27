@@ -10,7 +10,7 @@ const USER_NAME_STORAGE_KEY = "user-name-key-123";
 
 const parsedData = localStorage.getItem(DATA_STORAGE_KEY);
 
-const dataModel = JSON.parse(parsedData) || [
+let dataModel = JSON.parse(parsedData) || [
   {
     name: "evil man",
     message: "you are evil",
@@ -57,6 +57,9 @@ document.addEventListener("click", (e) => {
   if (e.target.id.startsWith("delete-person-")) {
     const id = Number(e.target.id.split("-").pop());
     document.querySelectorAll(".list-item-container")[id].remove();
+    dataModel = dataModel.splice(id, 1);
+    console.log(dataModel);
+    localStorage.setItem(DATA_STORAGE_KEY, JSON.stringify(dataModel));
   } else if (e.target.id.startsWith("share-person-")) {
     const id = Number(e.target.id.split("-").pop());
     const personEl = document.querySelectorAll(".list-item-container")[id];
