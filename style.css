@@ -1,28 +1,182 @@
 * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background-color: #B73340;
-        color: whitesmoke;
-      }
-      main {
-        margin: 2rem 3rem;
-      }
-      .card-container {
-        display: flex;
-        flex-direction: row;
-      }
-      .create-list-container {
-        justify-content: center;
-      }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #b73340;
+  color: whitesmoke;
+}
+main {
+  margin: 2rem 3rem;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+}
+.create-list-container {
+  justify-content: center;
+}
 
-      .naughty {
-        background-color: black;
-        color: whitesmoke;
-      }
+.naughty {
+  background-color: black;
+  color: whitesmoke;
+}
 
-      .naughty a {
-        background-color: green;
-      }
+.naughty a {
+  background-color: green;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.name-input-container {
+  position: relative;
+
+  width: fit-content;
+}
+
+label {
+  color: #322;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+  font-size: 1rem;
+}
+
+input {
+  padding: 0.5em 1em;
+  border-radius: 2px;
+  border: solid #655 1px;
+  font-family: serif;
+  font-size: 1.2rem;
+}
+
+.name-input-container .santa-text {
+  position: absolute;
+  top: -4px;
+  right: 0px;
+  font-size: 2rem;
+  transform: translate(50%, -50%) rotate(-15deg);
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+hr {
+  border: 2px #b73340 solid;
+  border-radius: 100px;
+  margin-block: 1em;
+}
+
+.list-body {
+  padding: 2rem;
+}
+
+.list-body > main {
+  margin: 0px;
+}
+
+.list-body input {
+  width: 100%;
+}
+
+.list-container legend {
+  color: #322;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+  font-size: 1.2rem;
+  padding: 0.4em;
+  margin-left: 0.3em;
+}
+
+.list-container fieldset {
+  /* background-color: aqua; */
+  border: #b73340 2px solid;
+  border-radius: 0.5rem;
+  display: flex;
+}
+
+.list-container fieldset > div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  padding: 10px;
+}
+
+.list-container fieldset > div > input {
+  margin-right: 10px;
+}
+
+.list-container label {
+  font-size: 1.2rem;
+}
+
+.list-container button {
+  width: 100%;
+  color: #b73340;
+  font-size: 3rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.list-container button > svg {
+  width: 1em;
+  display: inline-block;
+}
+
+.list-item-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 100px 100px;
+  gap: 1em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-item-container > div {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  display: block;
+}
+
+.add-person-btn {
+  margin-top: 1.4rem;
+  background-color: #b73340;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 0.4rem;
+  border: solid #655 1px;
+  font-family: serif;
+  font-size: 1.2rem;
+}
+
+/* UTILITY CLASSES */
+
+.bg-beige {
+  background-color: #fae0d4;
+}
+
+.text-black {
+  color: #322;
+}
+
+.text-burgundy {
+  color: #b73340;
+}
+
+.cursive {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}

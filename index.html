@@ -5,43 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>List</title>
     <script src="./js/index.js" type="module" defer></script>
-    <style>
-      .list-item-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .list-item-container > div {
-        display: flex;
-        flex-direction: column;
-      }
-      button {
-        display: block;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
-    <header>
-      <label for="user-name">Your Name</label>
-      <input id="user-name" type="text" placeholder="First Last" />
-      <h1>Naughty / Nice List</h1>
-      <hr />
+  <body class="bg-beige text-burgundy list-body">
+    <header class="list-header">
+      <div class="name-input-container">
+        <label for="user-name"
+          >Your Name<span class="santa-text cursive">aka Santa</span></label
+        >
+        <input
+          id="user-name"
+          type="text"
+          placeholder="First Last"
+          autocomplete="off"
+        />
+      </div>
+      <h1 class="cursive text-black">Naughty / Nice List</h1>
     </header>
+    <hr />
     <main>
-      <div id="list"></div>
-      <button id="add-person-btn">Add Person</button>
+      <div id="list" class="list-container"></div>
+      <button id="add-person-btn" class="add-person-btn">Add Person</button>
       <br />
     </main>
-    <footer>
-      <a
-        href="./card.html?name=ian%20valeta&status=naughty&message=idc&sender=joe%20shmoe"
-        >Link to Test Naughty</a
-      >
-      <a
-        href="./card.html?name=ian%20valeta&status=nice&message=idc&sender=joe%20shmoe"
-        >Link to Test Nice</a
-      >
-    </footer>
   </body>
 </html>
