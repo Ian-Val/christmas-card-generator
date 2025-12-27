@@ -85,6 +85,7 @@ document.addEventListener("click", (e) => {
     );
   } else if (e.target.id === DOM.addPersonBtn.id) {
     DOM.listEl.append(getNewPersonElement());
+    localStorage.setItem(DATA_STORAGE_KEY, JSON.stringify(dataModel));
   }
 });
 
